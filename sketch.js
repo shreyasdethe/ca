@@ -57,8 +57,12 @@ function setup() {
 }
 
 function draw() {
+	noLoop();
 	p0.show();
 	p1.show();
 	p2.show();
 	p3.show();
+
+	p0.update(20);
+	p0.show();
 }

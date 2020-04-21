@@ -15,13 +15,38 @@ class Player{
 	}
 
 	//-----------Update/game dynamics-----------
-	update(){
-
+	update(pos){
+		//New position
+		let h = this.board[pos];
+		//Current position absolute value
+		let cpv = this.b[0].pos;
+		//Current position index value - calculated
+		let curPos = 5*floor(cpv.y/(bs/5)) + floor(cpv.x/(bs/5));
+	
+		this.b[0].update(pos);
 	}
 	//------------Display-----------------------
-	show(){
+	show(pos){
 		if(this.isNewGame){
-			let h;
+			this.newGame();
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	//-------------------------------------------
+	//------------Clutter------------------------
+	newGame(){
+		let h;
 			switch(this.id){
 				case 0:
 					h = this.board[22];
@@ -42,7 +67,6 @@ class Player{
 			this.b[2].show(h.x+bs/20, h.y);
 			this.b[3].show(h.x-bs/20, h.y);
 
-			this.isNewGame = !this.isNewGame;
-		}
+			this.isNewGame = false;
 	}
 }
